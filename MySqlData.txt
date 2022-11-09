@@ -17,3 +17,5 @@ foreign key(empdid) references department(did)
 insert into department(did,dname) values(24,'Account');
 
 insert into employee(ename,email,password,empdid) values('Ram','ram@email.com','ram12',24);
+
+update department set dname = 'Accounts' where did=24;
