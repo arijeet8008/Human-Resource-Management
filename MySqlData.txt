@@ -1,0 +1,22 @@
+ create table department
+   (
+   did int primary key,
+   dname varchar(15),
+   location varchar(20)
+   );
+
+create table employee
+     (
+     empid int primary key auto_increment,
+     ename varchar(12),
+     address varchar(20),
+     mobile varchar(10)
+     );
+
+ create table employee_department
+     (
+     did int,
+     empid int,
+     foreign key(did) references department(did),
+     foreign key(empid) references employee(empid)
+     );
