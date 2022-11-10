@@ -11,4 +11,10 @@ public interface EmployeeDao {
 	
 	public List<Employee> allEmployeeDetails() throws EmployeeException;
 	
+	public String updateEmployeeDetails(Employee employee) throws EmployeeException;
+	
+	public Employee getEmployeeDetailsById(int eid) throws EmployeeException;
+	
+	public Employee loginEmployee(String username,String password) throws EmployeeException;
+	
 }
