@@ -2,7 +2,10 @@ package com.hrms.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.hrms.exceptions.EmployeeException;
 import com.hrms.model.Employee;
@@ -35,6 +38,39 @@ public class EmployeeDaoImpl implements EmployeeDao{
 		}
 		
 		return result;
+		
+	}
+
+	@Override
+	public List<Employee> allEmployeeDetails() throws EmployeeException {
+		
+		List<Employee> employees = new ArrayList<>();
+		
+		try (Connection conn = DBUtill.provideConnection()){
+			
+			PreparedStatement ps = conn.prepareStatement("select * from employee");
+			
+			ResultSet rs = ps.executeQuery();
+			
+			while(rs.next()) {
+				
+				int eid = rs.getInt("eid");
+				String n = rs.getString("ename");
+				String e = rs.getString("email");
+				String p = rs.getString("password");
+				int edid = rs.getInt("empdid");
+				
+				employees.add(new Employee(eid, n, e, p, edid));
+			}
+			
+		} catch (SQLException e) {
+			throw new EmployeeException(e.getMessage());
+		}
+		
+		if(employees.size() == 0)
+			throw new EmployeeException("No Records Found");
+		
+		return employees;
 		
 	}
 
