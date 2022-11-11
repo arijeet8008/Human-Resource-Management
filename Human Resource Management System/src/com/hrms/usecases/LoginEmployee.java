@@ -19,8 +19,6 @@ public class LoginEmployee {
 		System.out.println("Enter Your Password :");
 		String password = sc.next();
 		
-		
-		
 		EmployeeDao dao = new EmployeeDaoImpl();
 		
 		try {
