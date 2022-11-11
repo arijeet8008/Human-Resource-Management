@@ -17,4 +17,12 @@ public interface EmployeeDao {
 	
 	public Employee loginEmployee(String username,String password) throws EmployeeException;
 	
+	public String updateEmployeepPassword(int eid,String password) throws EmployeeException;
+	
+	public String applyForLeave(int eid,String status) throws EmployeeException;
+	
+	public String acceptLeave(int eid) throws EmployeeException;
+	
+	public String rejectLeave(int eid) throws EmployeeException;
+	
 }

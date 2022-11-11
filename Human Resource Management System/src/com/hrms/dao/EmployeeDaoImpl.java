@@ -171,4 +171,101 @@ public class EmployeeDaoImpl implements EmployeeDao{
 		
 	}
 
+	@Override
+	public String updateEmployeepPassword(int eid, String password) throws EmployeeException {
+		
+		String message = "Incorrect Employee ID: "+eid;
+		
+		try (Connection conn = DBUtill.provideConnection()){
+			
+			PreparedStatement ps = conn.prepareStatement("update employee set password = ? where eid = ?");
+			
+			ps.setString(1, password);
+			ps.setInt(2, eid);
+			
+			int x = ps.executeUpdate();
+			
+			if(x>0)
+				message = "Update Password Sucessfully";
+			
+		} catch (SQLException e) {
+			throw new EmployeeException(e.getMessage());
+		}
+		
+		return message;
+		
+	}
+
+	@Override
+	public String applyForLeave(int eid, String status) throws EmployeeException {
+		
+		String message = "Incorrect Employee ID: "+eid;
+		
+		try (Connection conn = DBUtill.provideConnection()){
+			
+			PreparedStatement ps = conn.prepareStatement("insert into leave_request(eid,status) values(?,?)");
+			
+			ps.setInt(1, eid);
+			ps.setString(2, status);
+			
+			int x = ps.executeUpdate();
+			
+			if(x>0)
+				message = "Insert Data Sucessfully";
+			
+		} catch (SQLException e) {
+			throw new EmployeeException(e.getMessage());
+		}
+		
+		return message;
+		
+	}
+
+	@Override
+	public String acceptLeave(int eid) throws EmployeeException {
+		
+		String message = "Incorrect Employee ID: "+eid;
+		
+		try (Connection conn = DBUtill.provideConnection()){
+			
+			PreparedStatement ps = conn.prepareStatement("update leave_request set status = 'Approved' where eid = ?");
+			
+			ps.setInt(1, eid);
+			
+			int x = ps.executeUpdate();
+			
+			if(x>0)
+				message = "Leave Request Accepted...";
+			
+		} catch (SQLException e) {
+			throw new EmployeeException(e.getMessage());
+		}
+		
+		return message;
+	}
+
+	@Override
+	public String rejectLeave(int eid) throws EmployeeException {
+		
+		String message = "Incorrect Employee ID: "+eid;
+		
+		try (Connection conn = DBUtill.provideConnection()){
+			
+			PreparedStatement ps = conn.prepareStatement("update leave_request set status = 'Rejected' where eid = ?");
+			
+			ps.setInt(1, eid);
+			
+			int x = ps.executeUpdate();
+			
+			if(x>0)
+				message = "Leave Request Rejected...";
+			
+		} catch (SQLException e) {
+			throw new EmployeeException(e.getMessage());
+		}
+		
+		return message;
+		
+	}
+
 }
