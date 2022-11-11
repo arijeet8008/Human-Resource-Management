@@ -25,4 +25,6 @@ public interface EmployeeDao {
 	
 	public String rejectLeave(int eid) throws EmployeeException;
 	
+	public String transferEmployee(int eid,int empdid) throws EmployeeException;
+	
 }

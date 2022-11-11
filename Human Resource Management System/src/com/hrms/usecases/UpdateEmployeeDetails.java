@@ -9,20 +9,53 @@ import com.hrms.model.Employee;
 
 public class UpdateEmployeeDetails {
 
-	public static void main(String[] args) {
+//	public static void main(String[] args) {
+//		
+//		Scanner sc = new Scanner(System.in);
+//		
+//		System.out.println("Enter Employee ID :");
+//		int eid = sc.nextInt();
+//		
+//		System.out.println("Enter New Employee Name :");
+//		String name = sc.next();
+//		
+//		System.out.println("Enter New Employee Email :");
+//		String email = sc.next();
+//		
+//		System.out.println("Enter New Employee Password :");
+//		String password = sc.next();
+//		
+//		EmployeeDao dao = new EmployeeDaoImpl();
+//		
+//		Employee employee = new Employee();
+//		employee.setEid(eid);
+//		employee.setEname(name);
+//		employee.setEmail(email);
+//		employee.setPassword(password);
+//		
+//		try {
+//			String result = dao.updateEmployeeDetails(employee);
+//			System.out.println(result);
+//		} catch (EmployeeException e) {
+//			System.out.println(e.getMessage());
+//		}
+//				
+//	}
+
+	public static void updateProfile() {
 		
 		Scanner sc = new Scanner(System.in);
 		
 		System.out.println("Enter Employee ID :");
 		int eid = sc.nextInt();
 		
-		System.out.println("Enter Employee Name :");
+		System.out.println("Enter New Employee Name :");
 		String name = sc.next();
 		
-		System.out.println("Enter Employee Email :");
+		System.out.println("Enter New Employee Email :");
 		String email = sc.next();
 		
-		System.out.println("Enter Employee Password :");
+		System.out.println("Enter New Employee Password :");
 		String password = sc.next();
 		
 		EmployeeDao dao = new EmployeeDaoImpl();
@@ -39,8 +72,7 @@ public class UpdateEmployeeDetails {
 		} catch (EmployeeException e) {
 			System.out.println(e.getMessage());
 		}
-		
-		
+				
 	}
-
+	
 }

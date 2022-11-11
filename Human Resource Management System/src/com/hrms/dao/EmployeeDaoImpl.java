@@ -268,4 +268,29 @@ public class EmployeeDaoImpl implements EmployeeDao{
 		
 	}
 
+	@Override
+	public String transferEmployee(int eid, int empdid) throws EmployeeException {
+		
+		String message = "Incorrect Employee ID / Department ID ";
+		
+		try (Connection conn = DBUtill.provideConnection()){
+			
+			PreparedStatement ps = conn.prepareStatement("update employee set empdid = ? where eid = ?");
+			
+			ps.setInt(1, empdid);
+			ps.setInt(2, eid);
+			
+			int x = ps.executeUpdate();
+			
+			if(x>0)
+				message = "Transfer Employee Sucessfully...";
+			
+		} catch (SQLException e) {
+			throw new EmployeeException();
+		}
+		
+		return message;
+		
+	}
+
 }
