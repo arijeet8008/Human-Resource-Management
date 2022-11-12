@@ -25,8 +25,10 @@ update employee set ename='Hari',email='hari@email',password='hari12' where eid=
 create table leave_request
 (
 eid int,
-status varchar(10) primary key,
+status varchar(10),
 foreign key(eid) references employee(eid)
 );
 
 insert into leave_request values(4,'accepted');
+
+update employee set empdid = 64 where eid = 5;

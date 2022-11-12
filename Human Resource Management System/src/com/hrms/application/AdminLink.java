@@ -13,7 +13,8 @@ import com.hrms.usecases.UpdateDepartments;
 
 public class AdminLink {
 
-	public static void main(String[] args) {
+//	public static void main(String[] args) {
+	public static void loginAdmin() {
 		
 			Scanner sc = new Scanner(System.in);
 			
