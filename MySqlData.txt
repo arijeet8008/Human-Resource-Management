@@ -19,3 +19,16 @@ insert into department(did,dname) values(24,'Account');
 insert into employee(ename,email,password,empdid) values('Ram','ram@email.com','ram12',24);
 
 update department set dname = 'Accounts' where did=24;
+
+update employee set ename='Hari',email='hari@email',password='hari12' where eid=2;
+
+create table leave_request
+(
+eid int,
+status varchar(10),
+foreign key(eid) references employee(eid)
+);
+
+insert into leave_request values(4,'accepted');
+
+update employee set empdid = 64 where eid = 5;
