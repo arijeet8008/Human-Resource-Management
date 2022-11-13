@@ -1,0 +1,13 @@
+Admin:
+-Add new Departments
+-View All Departments
+-Update Depatments
+-Register New Employees
+-Transfer Employees To other Departmnets
+-Grant or Deny Leave Request
+Employee:
+-View Profile
+-Update Profile
+-Change Password
+-Request for Leave
+
