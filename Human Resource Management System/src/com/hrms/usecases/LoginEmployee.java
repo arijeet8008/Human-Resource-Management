@@ -2,6 +2,7 @@ package com.hrms.usecases;
 
 import java.util.Scanner;
 
+import com.hrms.application.EmployeeLink;
 import com.hrms.dao.EmployeeDao;
 import com.hrms.dao.EmployeeDaoImpl;
 import com.hrms.exceptions.EmployeeException;
@@ -45,6 +46,7 @@ public class LoginEmployee {
 		try {
 			Employee employee = dao.loginEmployee(email, password);
 			System.out.println("Welcome : "+employee.getEname());
+			EmployeeLink.linkingemployee();
 		} catch (EmployeeException e) {
 			System.out.println(e.getMessage());
 		}
