@@ -1,5 +1,5 @@
 # -painstaking-playground-258
-Human Resource management system
+Human Resource management system                                                                                                                                         
 Er-Diagram
 
 ![ER-Diagram_Human Resource Managenet](https://user-images.githubusercontent.com/105917614/205678924-185d5141-90d8-4a12-8799-ad32776d8500.jpg)
